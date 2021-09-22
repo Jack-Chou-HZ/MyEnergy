@@ -20,12 +20,10 @@ requirejs.config({
 })
 
 requirejs(['./robert'],
-  function (foo) {
+  function (theRobert) {
     // foo and bar are loaded according to requirejs
     // config, but if not found, then node's require
     // is used to load the module.
-    console.log('Hi, I\'m from RequireJS ')
-    console.log(foo)
-
+    theRobert.sayHello('Lebron James', 'paragraph')
     window.document.title = 'hello world!'
   })
