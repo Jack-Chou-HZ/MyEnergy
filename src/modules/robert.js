@@ -17,7 +17,7 @@ define([], function () {
   const robert = {
     name: 'Android',
     sayHello: function (guest, elementId) {
-      document.getElementById(elementId).innerHTML=
+      document.getElementById(elementId).innerHTML =
       `Hi ${guest}, I'm ${this.name}, welcome to the robert world!`
     }
   }

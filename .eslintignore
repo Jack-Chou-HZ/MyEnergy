@@ -1,1 +1,5 @@
-src/require.js
+libs
+node_modules
+build
+release
+dist
