@@ -4,7 +4,12 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <script data-main="./src/index.js" src="./libs/require.js"></script>
     <p id='paragraph'></p>
+    <!--pay attention to the order of these script tags-->
+    <!--put react related packages in front of the require.js -->
+    <!--since they all work with the global scope -->
+    <script src="./libs/react.development.js"></script>
+    <script src="./libs/react-dom.development.js"></script>
+    <script data-main="./src/index.js" src="./libs/require.js"></script>
 </body>
 </html>
