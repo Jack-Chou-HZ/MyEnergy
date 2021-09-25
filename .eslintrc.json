@@ -1,6 +1,11 @@
 {
     "extends": "standard",
     "env": {
-        "amd": true // this is for the "define" keyword
+        "amd": true, // this is for the "define" keyword
+        "browser": true
+    },
+    "globals": {
+        "requirejs": true,
+        "define": true
     }
 }

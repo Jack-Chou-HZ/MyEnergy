@@ -8,15 +8,20 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "transf": "babel ./src/views -d ./src/views --config-file ./babel.config.json",
     "lint": "eslint --fix {,**}/*.js"
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
     "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
     "eslint-plugin-export": "^0.1.2",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "eslint-config-standard": "^16.0.3",
     "requirejs": "^2.3.6"
   }
 }
