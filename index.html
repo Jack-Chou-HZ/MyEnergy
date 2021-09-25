@@ -5,11 +5,15 @@
 </head>
 <body>
     <p id='paragraph'></p>
-    <!--pay attention to the order of these script tags-->
-    <!--put react related packages in front of the require.js -->
-    <!--since they all work with the global scope -->
+    <!-- it's *not recommended* to load scripts calling the define functions -->
+    <!-- other than the require.js itself -->
+    <!-- so here I commented the React scripts below -->
+    <!--
     <script src="./libs/react.development.js"></script>
     <script src="./libs/react-dom.development.js"></script>
-    <script data-main="./src/index.js" src="./libs/require.js"></script>
+    -->
+    <!--put the require.js tag at the end of the body and give it async -->
+    <!--    attribute -->
+    <script async data-main="./src/index.js" src="./src/libs/require.js"></script>
 </body>
 </html>

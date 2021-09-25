@@ -7,8 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'react'], factory) :
+  // Here the codes are inspecting the global scope, see if there are existing
+  // module system exists (the RequireJS, CommonJS, or ESScript  module system)
+  // if there're "exports" and "module" variables in the global scope
+  (typeof exports === 'object' && typeof module !== 'undefined') ?
+    // pass the exports object and the react module as parameters to the factory
+    factory(exports, require('react')) :
+    // otherwise, see if the "define" function is injected in the global scope
+    typeof define === 'function' && define.amd ?
+    define(['exports', 'react'], factory) : // if yes
   (global = global || self, factory(global.ReactDOM = {}, global.React));
 }(this, (function (exports, React) { 'use strict';
 
@@ -21,7 +28,8 @@
 
   function warn(format) {
     {
-      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      for (var _len = arguments.length, args =
+        new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
         args[_key - 1] = arguments[_key];
       }
 
@@ -30,7 +38,8 @@
   }
   function error(format) {
     {
-      for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      for (var _len2 = arguments.length, args =
+        new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
         args[_key2 - 1] = arguments[_key2];
       }
 
