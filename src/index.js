@@ -14,12 +14,18 @@
 
 // config the requirejs function
 require.config({
-  baseUrl: './src', // relative to the index.html file path
-  paths: {
-    modules: 'modules', // relative to the baseUrl
-    libs: '../libs'
+  baseUrl: './src/libs', // the relative path for requirejs to load all other
+                    // JavaScript modules. it is usually set to the path to the
+                    // path of the single entry point js file (which is included
+                    // with the data-main attribute in the <script> tag)
+  paths: { // relative to the baseUrl
+    modules: '../modules', // relative to the baseUrl
+    model: '../model',
+    controllers: '../controllers',
+    external: './'
   },
-  waitSeconds: 15
+  waitSeconds: 15 //
+
 })
 
 //   This is a function call, *not a function definition, nor a self-invoking function*,
@@ -27,8 +33,10 @@ require.config({
 //   The requirejs function is defined into the global scope
 // after the ./libs/require.js script is loaded in the <script> tag in
 // index.html.
-requirejs(['modules/robert'],
-  function (theRobert) {
+//   Pay attention to the .js file arguments, they don't use baseUrl
+requirejs(['modules/robert', 'external/react', 'external/react-dom'],
+  function (theRobert, React,ReactDOM) {
+    console.log('Congratulations! The dependencies are found and loaded!\n')
     // the JS file ./modules/robert.js is loaded (as a module) according to
     // requirejs configuration,
     theRobert.sayHello('Lebron James', 'paragraph')
@@ -42,21 +50,19 @@ requirejs(['modules/robert'],
     console.log('\n')
 
     // check if the react core libraries are loaded
-    /*
     console.log(React)
     console.log('\n')
-    console.log(reactDom)
-    */
+    console.log(ReactDOM)
   })
 
 // Print the define and requirejs function (which is also defined by the
 // ./libs/require.js script)
-
+// Interestingly these 4 lines are executed before the callback of
+// the requirejs function above (of course, because the callback is
+// executed after the dependencies are resolved and loaded)
 console.log('define: \n')
 console.log(define)
 console.log('\nrequirejs: \n')
 console.log(requirejs)
-console.log('\nReact:\n')
-console.log(React)
 
 // Use React functions here
