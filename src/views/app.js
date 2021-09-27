@@ -21,11 +21,14 @@ define(['react', 'react-dom', 'views/greetings', 'views/monitor'], function (Rea
 
     render() {
       return /*#__PURE__*/React.createElement("div", {
-        class: "app"
+        className: "app"
       }, /*#__PURE__*/React.createElement(Greetings, null), /*#__PURE__*/React.createElement(Monitor, null));
     }
 
-  }
+  } //   Pay attention here we returned an element object instead of
+  // a type, because App is used in the render function in main.js script
+  // which accepts an element instead of a type
 
-  return /*#__PURE__*/React.createElement(App, null);
+
+  return App;
 });

@@ -44,11 +44,14 @@ requirejs(['modules/robert',
   'react-dom',
   'views/app',
   'configs/config'],
-function (theRobert, React, ReactDOM, AppElement, configs) {
+function (theRobert, React, ReactDOM, App, configs) {
   console.log('Congratulations! The dependencies are found and loaded!\n')
-
+  // The initialData of the whole web application
+  // It can be initialized with a RESTFul call with user authentication
+  const initialData = {}
+  const theApp = (new App(initialData)).render()
   // Use React functions *inside* the callback function body
-  ReactDOM.render(AppElement, document.getElementById(configs.PG_APP))
+  ReactDOM.render(, document.getElementById(configs.PG_APP))
 })
 
 //   Print the define and requirejs function (which are injected into the global

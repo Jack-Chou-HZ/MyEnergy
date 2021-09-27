@@ -33,8 +33,5 @@ define(['react',
     }
   }
 
-  //   Pay attention here we returned an element object instead of
-  // a type, because App is used in the main.js script in the render
-  // funciton which accepts an element instead of a type
-  return <App />
+  return App
 })
