@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <head>
-    <title>A Web Application base on NodeJS and RequireJS</title>
     <meta charset="utf-8">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+    <link href="./src/assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./src/styles/main.css" type="text/css"  />
+    <title>A Web Application base on NodeJS and RequireJS</title>
 </head>
 <body>
-    <div id='welcome'></div>
+    <p>This is some static plain text!</p>
+    <div id='header' class='header'></div>
+    <div id='index'></div>
     <!-- it's *not recommended* to load scripts calling the define functions -->
     <!-- other than the require.js itself -->
     <!-- so here I commented the React scripts below -->
@@ -14,6 +19,8 @@
     -->
     <!--put the require.js tag at the end of the body and give it async -->
     <!--    attribute -->
-    <script async data-main="./src/index.js" src="./src/libs/require.js"></script>
+    <script async data-main="./src/main.js"
+      src="./src/libs/require.js"
+      type='application/javascript'></script>
 </body>
 </html>

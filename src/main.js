@@ -40,17 +40,17 @@ require.config({
 // (2) execute a piece of code (the function body) *after* the dependencies are
 // loaded.
 requirejs(['modules/robert',
-  'external/react',
-  'external/react-dom',
+  'react',
+  'react-dom',
+  'views/index',
   'views/about',
   'configs/config'],
-function (theRobert, React, ReactDOM, homePage, configs) {
+function (theRobert, React, ReactDOM, homePage, about, configs) {
   console.log('Congratulations! The dependencies are found and loaded!\n')
 
   // Use React functions *inside* the callback function body
   console.log(homePage)
-  console.log(configs)
-  ReactDOM.render(homePage, document.getElementById(configs.WELCOME_ID))
+  ReactDOM.render(homePage, document.getElementById(configs.PG_INDEX))
 })
 
 //   Print the define and requirejs function (which are injected into the global
