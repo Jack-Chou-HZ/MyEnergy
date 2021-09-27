@@ -42,15 +42,13 @@ require.config({
 requirejs(['modules/robert',
   'react',
   'react-dom',
-  'views/index',
-  'views/about',
+  'views/app',
   'configs/config'],
-function (theRobert, React, ReactDOM, homePage, about, configs) {
+function (theRobert, React, ReactDOM, AppElement, configs) {
   console.log('Congratulations! The dependencies are found and loaded!\n')
 
   // Use React functions *inside* the callback function body
-  console.log(homePage)
-  ReactDOM.render(homePage, document.getElementById(configs.PG_INDEX))
+  ReactDOM.render(AppElement, document.getElementById(configs.PG_APP))
 })
 
 //   Print the define and requirejs function (which are injected into the global

@@ -10,14 +10,14 @@
 define(['react', 'react-dom'], function (React, ReactDOM) {
   class Clock extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
       this.state = {date: new Date()}
-      // this.tick = this.tick.bind(this)
+      this.tick = this.tick.bind(this)
     }
 
     componentDidMount() {
       this.timerID = setInterval(
-        () => this.tick(), 1000);
+        () => this.tick(), 1000)
     }
 
     componentWillUnmount() {
@@ -30,13 +30,12 @@ define(['react', 'react-dom'], function (React, ReactDOM) {
 
     render() {
       return (
-        <div>
-          <h1>Welcome to MyEnergy App!</h1>
+        <div className='clock'>
           <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
         </div>
       );
     }
   }
 
-  return <Clock />
+  return Clock
 })

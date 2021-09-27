@@ -12,7 +12,8 @@ define(['react', 'react-dom'], function (React, ReactDOM) {
       super(props);
       this.state = {
         date: new Date()
-      }; // this.tick = this.tick.bind(this)
+      };
+      this.tick = this.tick.bind(this);
     }
 
     componentDidMount() {
@@ -30,10 +31,12 @@ define(['react', 'react-dom'], function (React, ReactDOM) {
     }
 
     render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Welcome to MyEnergy App!"), /*#__PURE__*/React.createElement("h2", null, "It is ", this.state.date.toLocaleTimeString(), "."));
+      return /*#__PURE__*/React.createElement("div", {
+        className: "clock"
+      }, /*#__PURE__*/React.createElement("h2", null, "It is ", this.state.date.toLocaleTimeString(), "."));
     }
 
   }
 
-  return /*#__PURE__*/React.createElement(Clock, null);
+  return Clock;
 });
