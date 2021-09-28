@@ -1,15 +1,18 @@
+@import './antd.css';
+
 body {
   font-family: monospace !important;
-}
-
-.app {
-  margin: 10px !important;
+  background-color: #7B9E87 !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.app {
+  margin: 0.5em !important;
+}
+
 .header {
-  padding: 1em 0;
-  background-color: #e6f7ff !important;
+  padding: 0.5em 0;
+  background-color: #FFF !important;
 }
 
 .header>.sub-title {
@@ -32,7 +35,7 @@ body {
 }
 
 .header>.greetings {
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: center;
   font-weight: bold;
   width: 100%;
@@ -46,18 +49,17 @@ body {
 
 .monitor {
   margin: 5px 0px 5px 0px;
-  background-color: #e6f7ff !important;
+  background-color: #FFF !important;
   font-size: 1.5em;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.monitor>h3 {
+.monitor>label {
   text-align: center;
-}
-
-.monitor.question {
-  marign: 0 10px 5px 10px;
+  font-size: 1em;
+  display: block;
+  margin-bottom: 0.5em;
 }
 
 .profile {
@@ -69,15 +71,31 @@ body {
   border-width: 0.2em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
-.profile>.button {
-  padding: 2em 0;
+.profile .question {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  display: flex;
 }
 
-.profile>.button>input {
-  margin: 0 0.5em;
+.question>.ask {
+  width: 60%;
+  padding-right: 1em;
+  text-align: right;
 }
+.question>.answer {
+  /* width: 40%;
+  padding-left: 1em;*/
+}
+
+.profile .button>input {
+  margin: 1em 0;
+}
+
+
+
+
 
 

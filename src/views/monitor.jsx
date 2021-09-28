@@ -24,7 +24,7 @@ define(['react', 'react-dom', 'views/profile'], function (React, ReactDOM, Profi
     render () {
       return (
       <div className='monitor'>
-        <h3>Would you mind telling me how you feel?</h3>
+        <label>Would you mind telling me how you feel?</label>
         <Profile />
       </div>
       )

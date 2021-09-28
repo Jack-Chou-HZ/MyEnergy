@@ -64,13 +64,21 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
           <Tabs defaultActiveKey="1" onChange={this.onTabsChangedHandler}>
             <TabPane tab="Physical status" key="1">
               <div className='question'>
-                <label>Did you sleep well last night? <input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} /></label>
+                <div className='ask'><label>Did you sleep well last night?</label></div>
+                <div className='answer'><input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} /></div>
               </div>
               <div className='question'>
-                <label>Do you feel energetic? <input type="text" name='energy' value={this.state.energy} onChange={this.handleChange} /></label>
+                <div className='ask'><label>Do you feel energetic today?</label></div>
+                <div className='answer'>
+                 <input type="text" name='energy' value={this.state.energy} onChange={this.handleChange} /></div>
               </div>
               <div className='question'>
-                <label>Are you quite happy today? <input type="text" name='happiness' value={this.state.happiness} onChange={this.handleChange} /></label>
+                <div className='ask'>
+                  <label>How happy are you today?</label>
+                </div>
+                <div className='answer'>
+                  <input type="text" name='happiness' value={this.state.happiness} onChange={this.handleChange} />
+                </div>
               </div>
             </TabPane>
             <TabPane tab="Emotion status" key="2">
@@ -83,7 +91,12 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
             </TabPane>
             <TabPane tab="Spitial status" key="3">
               <div className='question'>
-                <label>Did you sleep well last night? <input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} /></label>
+                <div className='ask'>
+                  <label>Did you sleep well last night?</label>
+                </div>
+                <div className='answer'>
+                  <input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} />
+                </div>
               </div>
               <div className='question'>
                 <label>Do you feel energetic? <input type="text" name='energy' value={this.state.energy} onChange={this.handleChange} /></label>
