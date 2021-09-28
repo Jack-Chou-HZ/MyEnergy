@@ -48,14 +48,17 @@ function (theRobert, React, ReactDOM, App, configs) {
   console.log('Congratulations! The dependencies are found and loaded!\n')
   // The initialData of the whole web application
   // It can be initialized with a RESTFul call with user authentication
-  const initialData = {}
+  const initialData = {
+    author: 'Jack Chou (@jack_sparrow_hz, better.product.go@gmail.com)',
+    'initial date': 'Sep, 2021'
+  }
   const theApp = (new App(initialData)).render()
   // Use React functions *inside* the callback function body
-  ReactDOM.render(, document.getElementById(configs.PG_APP))
+  ReactDOM.render(theApp, document.getElementById(configs.PG_APP))
 })
 
 //   Print the define and requirejs function (which are injected into the global
-// scope by executing the ./libs/require.js script)
+// scope by executing the ./libs/require.js script while loading the index.html file)
 //   Interestingly these 4 lines are executed before all dependencies are loaded,
 // the behavior is exactly what we want: asychronously load dependencies (and
 // maintain the execution order by putting the codes that depends on the

@@ -12,22 +12,22 @@ define(['react',
   'views/greetings',
   'views/monitor'], function (React, ReactDOM, Greetings, Monitor) {
   class App extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {date: new Date()}
+    constructor (props) {
+      super(props)
+      this.state = { date: new Date() }
     }
 
-    componentDidMount() {
+    componentDidMount () {
     }
 
-    componentWillUnmount() {
+    componentWillUnmount () {
     }
 
-    render() {
+    render () {
       return (
         <div className='app'>
-          <Greetings />
-          <Monitor />
+          <Greetings props={this.state} className='greetings'/>
+          <Monitor props={this.state} className='monitor'/>
         </div>
       )
     }

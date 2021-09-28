@@ -1,19 +1,40 @@
 body {
-  background-color: #e6f7ff !important;
-  display: flex;
-  align: center;
+  font-family: monospace !important;
 }
 
-.header {
-  font-family: monospace;
-  font-size: 12px;
+.app {
+  margin: 10px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.greetings {
+  text-align: center;
+  font-size: 2em;
+  margin: 0px 0px 5px 0px;
+  background-color: #e6f7ff !important;
+}
+
+.greetings h3 {
+
+}
+
+.greetings>.clock {
+  text-align: right;
+  margin-right: 10px;
 }
 
 .monitor {
-  margin:  5px;
+  margin: 5px 0px 5px 0px;
+  background-color: #e6f7ff !important;
+  font-size: 2em;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.clock {
-  width: 100px;
-  align: right;
+.monitor>h3 {
+  text-align: center;
+}
+
+.monitor.question {
+  marign: 0 10px 5px 10px;
 }

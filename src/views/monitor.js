@@ -1,42 +1,29 @@
 // Filename:
-//   index.jsx
+//   monitor.jsx
 // Date:
 //   Sep, 2021
 // Author:
 //   Jack Chou (@jack_sparrow_hz)
 // Description:
-//   This is a Clock component
-define(['react', 'react-dom'], function (React, ReactDOM) {
-  class Clock extends React.Component {
+//   This is the Monitor component
+define(['react', 'react-dom', 'views/profile'], function (React, ReactDOM, Profile) {
+  class Monitor extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        date: new Date()
-      };
-      this.tick = this.tick.bind(this);
     }
 
-    componentDidMount() {
-      this.timerID = setInterval(() => this.tick(), 1000);
+    componentDidMount() {// Pass the user object to the profile component
     }
 
-    componentWillUnmount() {
-      clearInterval(this.timerID);
-    }
-
-    tick() {
-      this.setState({
-        date: new Date()
-      });
-    }
+    componentWillUnmount() {}
 
     render() {
       return /*#__PURE__*/React.createElement("div", {
-        className: "clock"
-      }, /*#__PURE__*/React.createElement("h2", null, "It is ", this.state.date.toLocaleTimeString(), "."));
+        className: "monitor"
+      }, /*#__PURE__*/React.createElement("h3", null, "Would you mind telling me how you feel?"), /*#__PURE__*/React.createElement(Profile, null));
     }
 
   }
 
-  return Clock;
+  return Monitor;
 });
