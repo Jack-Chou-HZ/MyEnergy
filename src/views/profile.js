@@ -17,7 +17,8 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
       this.onTabsChangedHandler = this.onTabsChangedHandler.bind(this);
       this.state = {
         sleep: '',
-        energy: ''
+        energy: '',
+        happiness: ''
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +35,7 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
       const {
         name
       } = event.target;
-      const state = {}; // variablize the property name here
+      const state = {}; // parameterize the property name here
 
       state[name] = event.target.value;
       this.setState({ ...state
@@ -65,12 +66,13 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
         TabPane
       } = Tabs;
       return /*#__PURE__*/React.createElement("form", {
-        onSubmit: this.handleSubmit
+        onSubmit: this.handleSubmit,
+        className: "profile"
       }, /*#__PURE__*/React.createElement(Tabs, {
         defaultActiveKey: "1",
         onChange: this.onTabsChangedHandler
       }, /*#__PURE__*/React.createElement(TabPane, {
-        tab: "Should be configurable",
+        tab: "Physical status",
         key: "1"
       }, /*#__PURE__*/React.createElement("div", {
         className: "question"
@@ -86,13 +88,48 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
         name: "energy",
         value: this.state.energy,
         onChange: this.handleChange
+      }))), /*#__PURE__*/React.createElement("div", {
+        className: "question"
+      }, /*#__PURE__*/React.createElement("label", null, "Are you quite happy today? ", /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        name: "happiness",
+        value: this.state.happiness,
+        onChange: this.handleChange
       })))), /*#__PURE__*/React.createElement(TabPane, {
-        tab: "Tab 2",
+        tab: "Emotion status",
         key: "2"
-      }, "Content of Tab Pane 2"), /*#__PURE__*/React.createElement(TabPane, {
-        tab: "Tab 3",
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "question"
+      }, /*#__PURE__*/React.createElement("label", null, "Did you sleep well last night? ", /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        name: "sleep",
+        value: this.state.sleep,
+        onChange: this.handleChange
+      }))), /*#__PURE__*/React.createElement("div", {
+        className: "question"
+      }, /*#__PURE__*/React.createElement("label", null, "Do you feel energetic? ", /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        name: "energy",
+        value: this.state.energy,
+        onChange: this.handleChange
+      })))), /*#__PURE__*/React.createElement(TabPane, {
+        tab: "Spitial status",
         key: "3"
-      }, "Content of Tab Pane 3")), /*#__PURE__*/React.createElement("div", {
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "question"
+      }, /*#__PURE__*/React.createElement("label", null, "Did you sleep well last night? ", /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        name: "sleep",
+        value: this.state.sleep,
+        onChange: this.handleChange
+      }))), /*#__PURE__*/React.createElement("div", {
+        className: "question"
+      }, /*#__PURE__*/React.createElement("label", null, "Do you feel energetic? ", /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        name: "energy",
+        value: this.state.energy,
+        onChange: this.handleChange
+      }))))), /*#__PURE__*/React.createElement("div", {
         className: "button"
       }, /*#__PURE__*/React.createElement("input", {
         type: "submit",

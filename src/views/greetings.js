@@ -11,7 +11,8 @@ define(['react', 'react-dom'], function (React, ReactDOM) {
     constructor(props) {
       super(props);
       this.state = {
-        date: new Date()
+        date: new Date(),
+        quote: '\"' + 'Business is not a job but a mindset.' + '\"'
       };
       this.tick = this.tick.bind(this);
     }
@@ -32,10 +33,22 @@ define(['react', 'react-dom'], function (React, ReactDOM) {
 
     render() {
       return /*#__PURE__*/React.createElement("div", {
+        className: "header"
+      }, /*#__PURE__*/React.createElement("div", {
         className: "greetings"
-      }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Hi, how are you doing today?")), /*#__PURE__*/React.createElement("div", {
+      }, /*#__PURE__*/React.createElement("label", null, "Hi, how are you doing today?")), /*#__PURE__*/React.createElement("div", {
+        className: "sub-title"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "left-column"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "quote"
+      }, /*#__PURE__*/React.createElement("label", null, "Quotes of the day: ", this.state.quote))), /*#__PURE__*/React.createElement("div", {
+        className: "right-column"
+      }, /*#__PURE__*/React.createElement("div", {
         className: "clock"
-      }, /*#__PURE__*/React.createElement("h3", null, this.state.date.toLocaleTimeString())));
+      }, /*#__PURE__*/React.createElement("h3", null, this.state.date.toLocaleTimeString())), /*#__PURE__*/React.createElement("a", {
+        href: "./"
+      }, "Go to my profile"))));
     }
 
   }
