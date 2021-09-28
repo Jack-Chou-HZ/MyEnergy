@@ -1,13 +1,13 @@
 ({
-  baseUrl: './src/libs',
+  baseUrl: './downgraded',
   paths: {
-    modules: '../modules',
-    model: '../model',
-    controllers: '../controllers',
-    views: '../views',
-    configs: '../configs',
+    modules: './modules',
+    model: './model',
+    controllers: './controllers',
+    views: './views',
+    configs: './configs',
     external: './'
   },
-  dir: 'dist'
-  }
+  dir: 'release'
+}
 )

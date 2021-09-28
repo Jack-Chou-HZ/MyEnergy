@@ -4,7 +4,7 @@
         "amd": true, // this is for the "define" keyword
         "browser": true
     },
-    "globals": {
+    "globals": { // tell the eslint these are the global variables
         "requirejs": true,
         "define": true
     },

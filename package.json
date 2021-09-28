@@ -9,8 +9,9 @@
   "private": true,
   "scripts": {
     "transf": "babel ./src/views -d ./src/views --config-file ./.babelrc",
-    "downgrade": "babel ./src -d ./release --config-file ./.babelrc.downgrade",
-    "lint": "eslint --fix {,**}/*.{js,jsx}"
+    "lint": "eslint --fix {,**}/*.{js,jsx}",
+    "downgrade": "babel ./src -d ./downgraded --config-file ./.babelrc.downgrade",
+    "compress": "node node_modules/requirejs/bin/r.js -o r.compress.config.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
@@ -25,5 +26,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.26.0",
     "requirejs": "^2.3.6"
-  }
+  },
+  "packageManager": "yarn@3.0.2"
 }

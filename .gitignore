@@ -1,4 +1,6 @@
 node_modules
+downgraded
 release
 build
 *.log
+.yarn
