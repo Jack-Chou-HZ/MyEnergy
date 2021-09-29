@@ -4,3 +4,4 @@ release
 build
 *.log
 .yarn
+./src/views/*.js
