@@ -1,30 +1,29 @@
 // Filename:
-//   index.js
+//   main.js
 // Date:
 //   Sep, 2021
 // Author:
 //   Jack Chou (@jack_sparrow_hz)
 // Description;
-//   A sample code to use RequireJS to write modular JavaScript code and make
-// use of react core libraries.
+//   The single entry of MyEnergy web application.
 
-//   Since the require.js file is loaded in the HTML <script> tag, we don't
-// need to define it here again:
-// const requirejs = require('requirejs')
-
-// config the requirejs function
-require.config({
-  baseUrl: './libs', // The relative path for requirejs to load all other
-  // JavaScript modules. This is the default directory
-  // to look for modules (as dependencies) dependent by
-  // other modules.
+requirejs.config({
+  //   Based on require.js behavior, it looks for dependencies under the
+  // baseUrl directory by default. I can specify "paths" for direct dependencies,
+  // but the "path" for in-direct dependencies are *ignored*.
+  //   Example, module A dependes on module B. While requirejs resolves module
+  // A, it looks for module B under baseUrl directory, even when I specified
+  // the path of module B somewhere else.
+  //   As an result, I have to set the baseUrl to the directory where all 3rd
+  // party modules resides (in this case the ./lib directory, in hope that
+  // when requirejs tries to look for some modules, they're right there.)
+  baseUrl: './libs',
   paths: { // relative to the baseUrl
     modules: '../modules', // relative to the baseUrl
     model: '../model',
     controllers: '../controllers',
     views: '../views',
-    configs: '../configs',
-    external: './'
+    configs: '../configs'
   },
   waitSeconds: 15 //
 
