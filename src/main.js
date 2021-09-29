@@ -14,7 +14,7 @@
 
 // config the requirejs function
 require.config({
-  baseUrl: './src/libs', // The relative path for requirejs to load all other
+  baseUrl: './libs', // The relative path for requirejs to load all other
   // JavaScript modules. This is the default directory
   // to look for modules (as dependencies) dependent by
   // other modules.

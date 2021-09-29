@@ -10,8 +10,8 @@
   "scripts": {
     "transf": "babel ./src/views -d ./src/views --config-file ./.babelrc",
     "lint": "eslint --fix ./src/{,**}/*.{js,jsx}",
-    "downgrade": "babel ./src -d ./downgraded --config-file ./.babelrc.downgrade",
-    "compress": "node node_modules/requirejs/bin/r.js -o r.compress.config.js"
+    "downgrade": "babel src -d ./downgraded --config-file ./.babelrc.downgrade",
+    "compress": "node node_modules/requirejs/bin/r.js -o ./r.compress.config.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
