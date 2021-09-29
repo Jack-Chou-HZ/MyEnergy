@@ -6,10 +6,10 @@
 //   Jack Chou (@jack_sparrow_hz)
 // Description;
 //   A sample code to use RequireJS to write modular JavaScript code and make
-// use of the NodeJS modules at the same time.
+// use of react core libraries.
 
 //   Since the require.js file is loaded in the HTML <script> tag, we don't
-// need to define it here again
+// need to define it here again:
 // const requirejs = require('requirejs')
 
 // config the requirejs function
