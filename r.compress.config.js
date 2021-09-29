@@ -1,5 +1,4 @@
 // Compress and bundle to a single file
-/*
 ({
   baseUrl: './downgraded/libs',
   paths: {
@@ -13,9 +12,9 @@
   out: "./release/bundle.js", // output a single file
 }
 )
-*/
 
 // Compress file by file and out put to a directory
+/*
 ({
   baseUrl: './downgraded',
   paths: {
@@ -29,3 +28,4 @@
   dir: 'release'  // output a dir of files
 }
 )
+*/
