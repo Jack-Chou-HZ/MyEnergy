@@ -20,7 +20,9 @@
                                // It will default to "detect" in the future
         },
         "propWrapperFunctions": [
-            // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
+            //   The names of any function used to wrap propTypes,
+            // e.g. `forbidExtraProps`. If this isn't set,
+            // any propTypes wrapped in a function will be skipped.
             "forbidExtraProps",
             {"property": "freeze", "object": "Object"},
             {"property": "myFavoriteWrapper"},
@@ -28,14 +30,18 @@
             {"property": "forbidExtraProps", "exact": true}
         ],
         "componentWrapperFunctions": [
-            // The name of any function used to wrap components, e.g. Mobx `observer` function. If this isn't set, components wrapped by these functions will be skipped.
+            //   The name of any function used to wrap components,
+            // e.g. Mobx `observer` function. If this isn't set,
+            // components wrapped by these functions will be skipped.
             "observer", // `property`
             {"property": "styled"}, // `object` is optional
             {"property": "observer", "object": "Mobx"},
-            {"property": "observer", "object": "<pragma>"} // sets `object` to whatever value `settings.react.pragma` is set to
+            // sets `object` to whatever value `settings.react.pragma` is set to
+            {"property": "observer", "object": "<pragma>"}
         ],
         "formComponents": [
-          // Components used as alternatives to <form> for forms, eg. <Form endpoint={ url } />
+          //   Components used as alternatives to <form> for forms,
+          // eg. <Form endpoint={ url } />
           "CustomForm",
           {"name": "Form", "formAttribute": "endpoint"}
         ],
@@ -47,7 +53,7 @@
     },
     "parserOptions": {
       "ecmaFeatures": {
-      "jsx": true
+        "jsx": true
     }
   }
 }
