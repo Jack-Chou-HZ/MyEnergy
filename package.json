@@ -8,10 +8,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "transf": "babel ./src/views -d ./src/views --config-file ./.babelrc",
-    "lint": "eslint --fix ./src/{,**}/*.{js,jsx}",
+    "transf": "babel ./src/views/*.jsx -d ./src/views --config-file ./.babelrc",
+    "lint": "eslint --fix --quiet ./src{,/**}/*.{js,jsx}",
+    "make-dev": "yarn transf && yarn lint",
     "downgrade": "babel src -d ./downgraded --config-file ./.babelrc.downgrade",
-    "compress": "node node_modules/requirejs/bin/r.js -o ./r.compress.config.js"
+    "compress": "node node_modules/requirejs/bin/r.js -o ./r.compress.config.js",
+    "make-release": "yarn make-dev && yarn downgrade && yarn compress"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
