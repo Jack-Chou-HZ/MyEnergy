@@ -18,7 +18,7 @@ define(['react', 'react-dom', 'antd', 'services/xhr'], function (
     }
 
     componentDidMount () {
-      this.state.xhr.open(...this.props)
+      this.state.xhr.open('GET', './user', true)
     }
 
     render () {

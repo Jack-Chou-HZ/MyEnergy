@@ -52,20 +52,29 @@
 .monitor>label {
   text-align: center;
   font-size: 1em;
+  font-family: 'Courier New';
+  font-style: italic;
   display: block;
   margin-bottom: 0.5em;
+}
+
+.monitor>.logo {
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Courier New';
+  font-style: italic;
+  font-weight: bold;
+  display: block;
+  padding: 1em 0;
 }
 
 .profile {
   display: inline-block;
   text-align: center;
-  border-color: green;
-  border-top-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+  border-radius: .3em;
   border-width: 0.2em;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 2em;
-  margin-bottom: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 25px 0 rgba(0, 0, 0, 0.19);
+  padding: 0 1em;
 }
 
 .profile .question {

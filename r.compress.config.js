@@ -3,8 +3,8 @@
   baseUrl: './downgraded/libs',
   paths: {
     modules: '../modules',
-    model: '../model',
-    controllers: '../controllers',
+    models: '../models',
+    services: '../services',
     views: '../views',
     configs: '../configs'
   },
@@ -19,8 +19,8 @@
   baseUrl: './downgraded',
   paths: {
     modules: './modules',
-    //model: './model',
-    controllers: './controllers',
+    model: './model',
+    services: './services',
     views: './views',
     configs: './configs',
     main: './main.js'
