@@ -1,15 +1,15 @@
 {
-  "name": "HTML5-ECMAScript-12-RequireJS",
+  "name": "MyEnergy",
   "version": "1.0.0",
   "description": "A playground for HTML5+ECMAScript12+RequireJS",
   "main": "index.js",
-  "repository": "git@github.com:Jack-Chou-HZ/HTML5-ECMAScript-12-RequireJS.git",
+  "repository": "git@github.com:Jack-Chou-HZ/MyEnergy.git",
   "author": "Jack-Chou-HZ <better.product.go@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
     "transf": "babel ./src/views -d ./src/views --config-file ./babel.config.json",
-    "lint": "eslint --fix {,**}/*.js"
+    "lint": "eslint --fix ./src/{,**}/*.js --quiet"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
