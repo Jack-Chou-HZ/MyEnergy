@@ -13,7 +13,7 @@
 // const requirejs = require('requirejs')
 
 // config the requirejs function
-require.config({
+requirejs.config({
   baseUrl: './src/libs', // The relative path for requirejs to load all other
   // JavaScript modules. This is the default directory
   // to look for modules (as dependencies) dependent by
@@ -25,9 +25,7 @@ require.config({
     views: '../views',
     configs: '../configs',
     external: './'
-  },
-  waitSeconds: 15 //
-
+  }
 })
 
 //   This is a function call, *not a function definition, nor a self-invoking function*,

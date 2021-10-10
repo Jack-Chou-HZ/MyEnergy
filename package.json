@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "transf": "babel ./src/views -d ./src/views --config-file ./babel.config.json",
-    "lint": "eslint --fix {,**}/*.js"
+    "lint": "eslint --fix ./src/{,**}/*.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
