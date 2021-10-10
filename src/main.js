@@ -15,8 +15,7 @@ requirejs.config({
     services: '../services', // call back services
     views: '../views', // jsx React components
     configs: '../configs'
-  },
-  waitSeconds: 15
+  }
 })
 
 requirejs([
