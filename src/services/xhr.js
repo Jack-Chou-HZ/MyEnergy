@@ -11,67 +11,33 @@ define([], function () {
   class Xhr extends XMLHttpRequest {
     constructor (options) {
       super(options)
-      console.log('xhr options:')
-      console.log(options)
-    }
-
-    // event handler inherits from the XMLHttpRequest object
-    onreadystatechange () {
-      const callback = this.options && this.options.callback
-      if (!callback) {
-        console.log('error: no event handler defined!')
-        return
-      }
-
-      try {
-        switch (this.readyState) {
-          case 0: {
-          // UNSENT
-          // connection not open, open() not called
-            console.log('http connection not open yet')
-            break
-          }
-          case 1: {
-          // OPENED
-          // connection opened, open() has been called
-            break
-          }
-          case 2: {
-          // HEADERS_RECEIVED
-          // send() has been called, and headers, status available
-            break
-          }
-          case 3: {
-          // LOADING
-          // downloading; responseText holds partial data
-            break
-          }
-          case 4: {
-          // DONE
-          // The operation complete
-            if (this.status === 0 || this.status === 200) {
-              if (this.responseType === 'json') {
-                console.log('I gonna send you some json')
-              } else {
-                console.log('opps...some wrong here')
-              }
-            }
-            break
-          }
-          default: {
-          // throw exception
-            throw (new Error())
+      if (!options) {
+        const defaultOptions = {
+          appName: 'MyEnergy',
+          requestHeaderConfig: {
+            Accept: 'application/json'
+          },
+          method: 'GET',
+          url: '/defaultquestions',
+          async: true
+        }
+        this.defaultOptions = defaultOptions
+      } else {
+        const { requestHeaderConfig } = options
+        for (const prop in requestHeaderConfig) {
+          if (requestHeaderConfig.hasOwnProperty(prop)) {
+            super.setRequestHeader(prop, requestHeaderConfig[prop])
           }
         }
-      } catch (error) {
-        console.log(error)
       }
     }
 
-    // open () {
-    //   super.open(this.options)
-    // }
-  };
+    open () {
+      console.log(`open fire`)
+      // super.open(...this.defaultOptions)
+      super.open('GET', 'http://localhost/defaultquestions')
+    }
+  }
 
   return Xhr
 })

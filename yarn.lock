@@ -1400,9 +1400,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"HTML5-ECMAScript-12-RequireJS@workspace:.":
+"MyEnergy@workspace:.":
   version: 0.0.0-use.local
-  resolution: "HTML5-ECMAScript-12-RequireJS@workspace:."
+  resolution: "MyEnergy@workspace:."
   dependencies:
     "@babel/cli": ^7.15.7
     "@babel/core": ^7.15.5

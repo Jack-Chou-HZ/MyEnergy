@@ -10,7 +10,8 @@
 define(['react',
   'react-dom',
   'views/Header',
-  'views/Monitor'], function (React, ReactDOM, Header, Monitor) {
+  'views/Monitor',
+  'services/xhr'], function (React, ReactDOM, Header, Monitor, Xhr) {
   class App extends React.Component {
     constructor (props) {
       super(props)
@@ -18,9 +19,17 @@ define(['react',
     }
 
     componentDidMount () {
+      console.log('initializing...')
+      // get initial data
+      // const xhr = new Xhr()
+
+      // xhr.open()
+      // xhr.send()
+      // xhr.close()
     }
 
     componentWillUnmount () {
+      console.log(`I'm going to mount`)
     }
 
     render () {

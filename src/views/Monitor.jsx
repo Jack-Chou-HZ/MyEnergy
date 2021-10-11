@@ -7,17 +7,22 @@
 // Description:
 //   This is the Monitor component
 
-define(['react', 'react-dom', 'views/Profile'], function (React, ReactDOM, Profile) {
-  class Monitor extends React.Component {
-    //   If there are no commands other than super(props), the whole constructor
-    // is unnecessary.
+define(['react', 
+'react-dom', 
+'views/Profile',
+'services/xhr'], function (React, ReactDOM, Profile, Xhr) {
+  class Monitor extends React.Component {    
     // constructor (props) {
     //   super(props)
     // }
 
     componentDidMount () {
-      // Pass the user object to the profile component
+      console.log('data initializing...')
+      // get initial data
 
+      const xhr = new Xhr()
+      xhr.open()
+      xhr.send()
     }
 
     componentWillUnmount () {
@@ -27,7 +32,7 @@ define(['react', 'react-dom', 'views/Profile'], function (React, ReactDOM, Profi
       return (
       <div className='monitor'>
         <label className='logo'>MyEnergy</label>
-        <label>Would you mind telling me how you feel?</label>
+        <label>Would you mind telling me how you feel today?</label>
         <Profile />
       </div>
       )

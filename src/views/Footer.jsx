@@ -6,4 +6,3 @@
 //   Jack Chou (@jack_sparrow_hz)
 // Description:
 //   This is the Footer component
-

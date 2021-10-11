@@ -12,13 +12,11 @@ define(['react', 'react-dom', 'antd', 'services/xhr'], function (
   class Header extends React.Component {
     constructor (props) {
       super(props)
-      this.state = {
-        xhr: new Xhr()
-      }
+      
     }
 
     componentDidMount () {
-      this.state.xhr.open('GET', './user', true)
+      
     }
 
     render () {
