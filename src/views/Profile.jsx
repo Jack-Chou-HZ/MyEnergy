@@ -28,6 +28,9 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
       // anonymous user has an ID of 0
       // const userId = this.props.user ? (this.props.user.id || 0) : 0
       // const profile = this.getHardCodedProfile(userId)
+      console.log('Profile did mount')
+      console.log('props: ')
+      console.log(this.props)
     }
 
     handleChange (event) {
@@ -50,8 +53,71 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
     }
 
     // get profile by userId from database
-    getProfile (userId) {
+    getProfile () {
       // set state
+      const { userId } = this.state
+
+      if (!userId) {
+        const { defaultQuestions } = this.props
+        console.log('Profile: defaultQuestions:')
+        console.log(defaultQuestions)
+
+        if (defaultQuestions) {
+          return (
+            <React.Fragment>
+              {
+              defaultQuestions.map((value, index) => (
+              <div className='question' key={index}>
+                <div className='ask'><label>{value}</label></div>
+                <div className='answer'><input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} /></div>
+              </div>)
+              )}
+              </React.Fragment>
+          )
+        } else {
+          return (<h2>Loading initial questions...</h2>)
+        }
+
+        // return (
+        //   <form onSubmit={this.handleSubmit} className='profile'>
+        //     <Tabs defaultActiveKey="1" onChange={this.onTabsChangedHandler}>
+        //       <TabPane tab="Physical status" key="1">
+        //           {defaultQuestions.map((value, index) => (
+        //             <div className='question' key={index}>
+        //           <div className='ask'><label>{value}</label></div>
+        //           <div className='answer'><input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} /></div>
+        //         </div>
+        //           ))}
+        //       </TabPane>
+        //       <TabPane tab="Emotion status" key="2">
+        //         <div className='question'>
+        //           <label>Did you sleep well last night? <input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} /></label>
+        //         </div>
+        //         <div className='question'>
+        //           <label>Do you feel energetic? <input type="text" name='energy' value={this.state.energy} onChange={this.handleChange} /></label>
+        //         </div>
+        //       </TabPane>
+        //       <TabPane tab="Spitial status" key="3">
+        //         <div className='question'>
+        //           <div className='ask'>
+        //             <label>Did you sleep well last night?</label>
+        //           </div>
+        //           <div className='answer'>
+        //             <input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} />
+        //           </div>
+        //         </div>
+        //         <div className='question'>
+        //           <label>Do you feel energetic? <input type="text" name='energy' value={this.state.energy} onChange={this.handleChange} /></label>
+        //         </div>
+        //       </TabPane>
+        //     </Tabs>
+        //     <div className='button'>
+        //       <input type="submit" value="Save" />
+        //       <input type="button" value="Never mind" onClick={this.handleSubmit} />
+        //     </div>
+        //   </form>
+        // )
+      }
     }
 
     // hard code the profile
@@ -104,7 +170,7 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
             </TabPane>
           </Tabs>
           <div className='button'>
-            <input type="submit" value="That's it" />
+            <input type="submit" value="Save" />
             <input type="button" value="Never mind" onClick={this.handleSubmit} />
           </div>
         </form>
@@ -116,7 +182,8 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
     }
 
     render () {
-      return this.getHardCodedProfile()
+      // return this.getHardCodedProfile()
+      return this.getProfile()
     }
   }
 

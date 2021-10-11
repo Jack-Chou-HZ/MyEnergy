@@ -19,7 +19,7 @@ define(['react',
     }
 
     componentDidMount () {
-      console.log('initializing...')
+      console.log('App did monut')
       // get initial data
       // const xhr = new Xhr()
 
@@ -29,7 +29,7 @@ define(['react',
     }
 
     componentWillUnmount () {
-      console.log(`I'm going to mount`)
+      console.log('I\'m going to mount')
     }
 
     render () {

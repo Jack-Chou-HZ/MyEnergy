@@ -12,11 +12,10 @@ define(['react', 'react-dom', 'antd', 'services/xhr'], function (
   class Header extends React.Component {
     constructor (props) {
       super(props)
-      
     }
 
     componentDidMount () {
-      
+
     }
 
     render () {

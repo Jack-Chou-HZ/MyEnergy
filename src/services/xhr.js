@@ -12,30 +12,27 @@ define([], function () {
     constructor (options) {
       super(options)
       if (!options) {
-        const defaultOptions = {
-          appName: 'MyEnergy',
-          requestHeaderConfig: {
-            Accept: 'application/json'
-          },
-          method: 'GET',
-          url: '/defaultquestions',
-          async: true
-        }
-        this.defaultOptions = defaultOptions
+        throw new Error('Please provide minimal options for the request: the http method and')
       } else {
-        const { requestHeaderConfig } = options
-        for (const prop in requestHeaderConfig) {
-          if (requestHeaderConfig.hasOwnProperty(prop)) {
-            super.setRequestHeader(prop, requestHeaderConfig[prop])
+        this.options = options
+        let { requestHeaders } = options
+        requestHeaders
+          ? ''
+          : requestHeaders = {
+            Accept: 'application/json'
+          }
+
+        for (const prop in requestHeaders) {
+          if (requestHeaders.hasOwnProperty(prop)) {
+            super.setRequestHeader(prop, requestHeaders[prop])
           }
         }
       }
     }
 
     open () {
-      console.log(`open fire`)
-      // super.open(...this.defaultOptions)
-      super.open('GET', 'http://localhost/defaultquestions')
+      const { method, url } = this.options
+      super.open(method, url)
     }
   }
 
