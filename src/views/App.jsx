@@ -20,12 +20,6 @@ define(['react',
 
     componentDidMount () {
       console.log('App did monut')
-      // get initial data
-      // const xhr = new Xhr()
-
-      // xhr.open()
-      // xhr.send()
-      // xhr.close()
     }
 
     componentWillUnmount () {

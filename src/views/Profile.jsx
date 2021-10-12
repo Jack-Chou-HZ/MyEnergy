@@ -28,9 +28,6 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
       // anonymous user has an ID of 0
       // const userId = this.props.user ? (this.props.user.id || 0) : 0
       // const profile = this.getHardCodedProfile(userId)
-      console.log('Profile did mount')
-      console.log('props: ')
-      console.log(this.props)
     }
 
     handleChange (event) {
@@ -55,25 +52,18 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
     // get profile by userId from database
     getProfile () {
       // set state
-      const { userId } = this.state
+      const { userId } = this.props
 
       if (!userId) {
         const { defaultQuestions } = this.props
-        console.log('Profile: defaultQuestions:')
-        console.log(defaultQuestions)
-
         if (defaultQuestions) {
-          return (
-            <React.Fragment>
-              {
-              defaultQuestions.map((value, index) => (
+          return (<div>
+            {defaultQuestions.map((value, index) => (
               <div className='question' key={index}>
                 <div className='ask'><label>{value}</label></div>
                 <div className='answer'><input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} /></div>
-              </div>)
-              )}
-              </React.Fragment>
-          )
+              </div>))}
+            </div>)
         } else {
           return (<h2>Loading initial questions...</h2>)
         }
