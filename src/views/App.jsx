@@ -10,8 +10,7 @@
 define(['react',
   'react-dom',
   'views/Header',
-  'views/Monitor',
-  'services/xhr'], function (React, ReactDOM, Header, Monitor, Xhr) {
+  'views/Monitor'], function (React, ReactDOM, Header, Monitor) {
   class App extends React.Component {
     constructor (props) {
       super(props)

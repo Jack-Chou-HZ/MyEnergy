@@ -7,24 +7,28 @@
 // Description:
 //   This is the Profile component which holds all questions
 // configed for the current user.
-//   It should read the configs from database, but now it's hard-coded
+//   It read profile from database and displays it on the monitor component.
 
-define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
+define(['react',
+  'react-dom',
+  'antd',
+  'prop-types.min'], function (React, ReactDOM, AntD, PropTypes) {
   class Profile extends React.Component {
     constructor (props) {
       super(props)
-      this.getProfile = this.getProfile.bind(this)
-      this.onTabsChangedHandler = this.onTabsChangedHandler.bind(this)
+      this.state = { answers: [] }
 
+      // class methods
+      this.getProfile = this.getProfile.bind(this)
+
+      // DOM envent handlers
+      this.onTabsChangedHandler = this.onTabsChangedHandler.bind(this)
       this.handleChange = this.handleChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
       this.handleReset = this.handleReset.bind(this)
     }
 
     componentDidMount () {
-      // anonymous user has an ID of 0
-      // const userId = this.props.user ? (this.props.user.id || 0) : 0
-      // const profile = this.getHardCodedProfile(userId)
     }
 
     handleChange (event) {
@@ -32,38 +36,57 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
       const state = {}
       // parameterize the property name here
       state[name] = event.target.value
-      this.setState({ ...state })
+      this.setState({ answers: [...state] })
     }
 
     handleSubmit (event) {
+      console.log('state and props')
       console.log(this.state)
-      // invoke service to update database
+      console.log(this.props)
       event.preventDefault()
+      // invoke service to update database
+      const xhr = new XMLHttpRequest()
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          const status = xhr.status
+          if (status === 0 || (status >= 200 && status < 400)) {
+            const res = JSON.parse(xhr.responseText)
+            console.log(res)
+          } else {
+            throw new Error('Error: answers not saved!')
+          }
+        }
+      }
+
+      xhr.open('POST', '/saveprofile', true)
+      xhr.setRequestHeader('Accept', 'application/json')
+      xhr.send(this.state.answers || [])
     }
 
     handleReset (event) {
-      this.setState({})
+      this.setState({ answers: [] })
       event.preventDefault()
     }
 
     // get profile by userId from database
     getProfile () {
       // set state
-      const { userId } = this.props
       const { Tabs } = AntD
       const { TabPane } = Tabs
 
-      if (!userId) {
-        const { defaultQuestions } = this.props
-        if (defaultQuestions) {
-          return (
+      const { defaultQuestions } = this.props
+      if (defaultQuestions) {
+        return (
             <form onSubmit={this.handleSubmit} className='profile'>
               <Tabs defaultActiveKey="1" onChange={this.onTabsChangedHandler}>
                 <TabPane tab="Physical status" key="1">
-                  {defaultQuestions.map((value, index) => (
+                  {defaultQuestions.map((item, index) => (
                     <div className='question' key={index}>
-                      <div className='ask'><label>{value.question}</label></div>
-                      <div className='answer'><input type="text" name='sleep' value={this.state.sleep} onChange={this.handleChange} /></div>
+                      <div className='ask'><label>{item.question}</label></div>
+                      <div className='answer'>
+                        <input type="text" name={item.seq} value={this.state.answers[item.seq]}
+                         onChange={this.handleChange} />
+                        </div>
                     </div>))}
                 </TabPane>
               </Tabs>
@@ -72,9 +95,8 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
                 <input type="button" value="Never mind" onClick={this.handleSubmit} />
               </div>
            </form>)
-        } else {
-          return (<h2>Loading initial questions...</h2>)
-        }
+      } else {
+        return (<h2>Loading initial questions...</h2>)
       }
     }
 
@@ -83,8 +105,15 @@ define(['react', 'react-dom', 'antd'], function (React, ReactDOM, AntD) {
     }
 
     render () {
-      return this.getProfile()
+      return this.getProfile(this.props.userId)
     }
+  }
+
+  // define property types
+  Profile.propTypes = {
+    userId: PropTypes.number,
+    defaultQuestions: PropTypes.array
+
   }
 
   return Profile

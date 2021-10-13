@@ -7,11 +7,12 @@
 // Description:
 //   This is a React component emulates the Google header
 
-define(['react', 'react-dom', 'antd', 'services/xhr'], function (
-  React, ReactDOM, AntD, Xhr) {
+define(['react', 'react-dom', 'antd'], function (
+  React, ReactDOM, AntD) {
   class Header extends React.Component {
     constructor (props) {
       super(props)
+      this.state = {}
     }
 
     componentDidMount () {
