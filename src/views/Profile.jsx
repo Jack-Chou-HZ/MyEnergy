@@ -19,7 +19,7 @@ define(['react',
       this.state = { answers: [] }
 
       // class methods
-      this.getProfile = this.getProfile.bind(this)
+      this.getProfile = this.constructProfile.bind(this)
 
       // DOM envent handlers
       this.onTabsChangedHandler = this.onTabsChangedHandler.bind(this)
@@ -32,11 +32,12 @@ define(['react',
     }
 
     handleChange (event) {
-      const { name } = event.target
-      const state = {}
-      // parameterize the property name here
-      state[name] = event.target.value
-      this.setState({ answers: [...state] })
+      console.log(event.target)
+      const { name, value } = event.target
+      const question = {}
+      // name is the (unique) sequnce number of the question
+      question[name] = value
+      this.setState({ answers: { ...this.state.answers, ...question } })
     }
 
     handleSubmit (event) {
@@ -50,8 +51,7 @@ define(['react',
         if (xhr.readyState === XMLHttpRequest.DONE) {
           const status = xhr.status
           if (status === 0 || (status >= 200 && status < 400)) {
-            const res = JSON.parse(xhr.responseText)
-            console.log(res)
+            console.log('Success: profile saved!')
           } else {
             throw new Error('Error: answers not saved!')
           }
@@ -68,9 +68,8 @@ define(['react',
       event.preventDefault()
     }
 
-    // get profile by userId from database
-    getProfile () {
-      // set state
+    // construct profile based on component props
+    constructProfile () {
       const { Tabs } = AntD
       const { TabPane } = Tabs
 
@@ -78,15 +77,25 @@ define(['react',
       if (defaultQuestions) {
         return (
             <form onSubmit={this.handleSubmit} className='profile'>
-              <Tabs defaultActiveKey="1" onChange={this.onTabsChangedHandler}>
-                <TabPane tab="Physical status" key="1">
+              <Tabs defaultActiveKey="0" onChange={this.onTabsChangedHandler}>
+                <TabPane tab={this.props.tabs[0] || "Physical status"} key="0">
                   {defaultQuestions.map((item, index) => (
                     <div className='question' key={index}>
-                      <div className='ask'><label>{item.question}</label></div>
+                      <div className='ask'>
+                        <label>{item.question}</label>
+                      </div>
                       <div className='answer'>
-                        <input type="text" name={item.seq} value={this.state.answers[item.seq]}
-                         onChange={this.handleChange} />
-                        </div>
+                        <input type="number"
+                        name='answer'
+                        min={0}
+                        max={100}
+                        value={this.state.answers[item.seq] || ''}
+                        onChange={this.handleChange} />
+                        <input type="text"
+                        name='comments'
+                        value={this.state.answers[item.seq] || ''}
+                        onChange={this.handleChange} />
+                      </div>
                     </div>))}
                 </TabPane>
               </Tabs>
@@ -105,7 +114,7 @@ define(['react',
     }
 
     render () {
-      return this.getProfile(this.props.userId)
+      return this.constructProfile(this.props.userId)
     }
   }
 
