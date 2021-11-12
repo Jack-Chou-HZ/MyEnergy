@@ -1,4 +1,4 @@
 {
   "presets": ["@babel/preset-react"],
-  "ignore": ["node_modules", "release", "libs", "assets", "styles", ".*"]
+  "ignore": ["node_modules", "release", "./src/libs", "./src/assets", "./src/styles", ".*"]
 }

@@ -7,22 +7,26 @@
 // Description:
 //   This is a React component emulates the Google header
 
-define(['react', 'react-dom', 'antd'], function (
-  React, ReactDOM, AntD) {
-  class Header extends React.Component {
-    constructor (props) {
-      super(props)
-      this.state = {}
-    }
+define([
+  'react',
+  'react-dom',
+  'antd'
+  ],
+  function (React, ReactDOM, AntD) {
+    class Header extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {}
+      }
 
-    componentDidMount () {
+      componentDidMount () {
 
-    }
+      }
 
-    render () {
-      return <p>{'I\'m the header'}</p>
+      render () {
+        return <a href='/about'>About</a>
+      }
     }
-  }
 
   return Header
 })
