@@ -29,6 +29,5 @@
     "eslint-plugin-react": "^7.26.0",
     "prop-types": "^15.7.2",
     "requirejs": "^2.3.6"
-  },
-  "packageManager": "yarn@3.0.2"
+  }
 }
