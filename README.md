@@ -3,7 +3,7 @@ A playground for HTML5 + ECMAScript 12th Edition + RequireJS
 ## Author info
 - Name: Jack-Chou-HZ (@jack_sparrow_hz)
 - Email: better.product.go@gmail.com
-# About how to make a release
+# How to release
 1. Steps:
     1. Run `yarn lint` // Use eslint to perform a static check of \*.js files
     2. Run `yarn transf` // Transform the \*.jsx files into \*.js files using babel cli
@@ -17,15 +17,13 @@ A playground for HTML5 + ECMAScript 12th Edition + RequireJS
     2. compress the js files and bundle them into one file
     <br/>Neither of the option take care of non-js files (such as ./assets, and html files), so we need to copy them into the `./release` directory manually (that's what the makeuprelease.sh
   script does)
-4. **When using the `3.2` option to make a release, we still need the require.js to be loaded before the bundle.js file,
- so the script tag in the index.html file is modified slightly
+4. **When using option `3.2` to make a release, we still need the require.js to be loaded before the bundle.js file, so the script tag in the index.html file is modified slightly
  into:<br/> `<script async data-main='./bundle.js' src='./require.js'>`**
  <br\>The require.js file could be a compressed version or an original version
-# About the project directory structure
+# About project directories
  1. Introduction to the root directory:
      1. The files not in any directories are called the project files.<br/>
      They are config files such as `.eslintrc.json, .gitignore, .babelrc,` package.json, etc... <br/>
      Or some shell scripts such as `makeuprelease.sh`
      2. The src directory is the root directory of project source codes. It contains all non-3rd-party source codes(except the `libs` directory which contains 3rd-party source codes and some stylesheets in `styles` directory)
      3. The downgraded directory contains \*.js files downgraded by babel cli into ECMAScript 5th edition (browser friendly)
-
