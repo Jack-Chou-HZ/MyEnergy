@@ -1400,9 +1400,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"HTML5-ECMAScript-12-RequireJS@workspace:.":
+"MyEnergy@workspace:.":
   version: 0.0.0-use.local
-  resolution: "HTML5-ECMAScript-12-RequireJS@workspace:."
+  resolution: "MyEnergy@workspace:."
   dependencies:
     "@babel/cli": ^7.15.7
     "@babel/core": ^7.15.5
@@ -1415,6 +1415,7 @@ __metadata:
     eslint-plugin-node: ^11.1.0
     eslint-plugin-promise: ^5.1.0
     eslint-plugin-react: ^7.26.0
+    prop-types: ^15.7.2
     requirejs: ^2.3.6
   languageName: unknown
   linkType: soft

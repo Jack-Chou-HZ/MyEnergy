@@ -10,29 +10,20 @@
 requirejs.config({
   baseUrl: './libs',
   paths: {
-    modules: '../modules',
-    model: '../model',
-    controllers: '../controllers',
-    views: '../views',
+    modules: '../modules', // internal JavaScript modules
+    models: '../models', // business models
+    services: '../services', // call back services
+    views: '../views', // jsx React components
     configs: '../configs'
-  },
-  waitSeconds: 15
+  }
 })
 
 requirejs([
   'react',
   'react-dom',
-  'views/app',
+  'views/App',
   'configs/config'],
 function (React, ReactDOM, App, configs) {
-  const initialData = {
-    author: {
-      author: 'Jack Chou(@jack_sparrow_hz)',
-      email: 'better.product.go@gamil.com',
-      initialDate: 'Sep 2021',
-      version: 'v0.1'
-    }
-  }
-  const theApp = (new App(initialData)).render()
-  ReactDOM.render(theApp, document.getElementById(configs.PG_APP))
+  const AppContainer = (new App()).render()
+  ReactDOM.render(AppContainer, document.getElementById(configs.PG_APP))
 })

@@ -10,7 +10,8 @@ A playground for HTML5 + ECMAScript 12th Edition + RequireJS
     3. Run `yarn downgrade` // Downgrade the ES2015+ \*.js files into ECMAScript 5th edition formate using babel cli
     4. Run `yarn compress` // Compress the ECMAScript 5th edition files (as is or into a single bundle.js file)
     5. Run `bash ./makeuprelease.sh`
-    6. The `./release` directory is ready for nginx to serve via the http protocol
+    6. The `./release` directory is ready for nginx to serve via the http protocol<br/>
+    Or you can run `yarn make` to exectue step 1 and step 2 together sequencly
 2. The behavior of the `yarn compress` command is configured by the r.compress.config.js config file.
 3. The `r.compress.config.js` config file has two options:
     1. compress the js files one by one and out put them one by one
@@ -26,4 +27,5 @@ A playground for HTML5 + ECMAScript 12th Edition + RequireJS
      They are config files such as `.eslintrc.json, .gitignore, .babelrc,` package.json, etc... <br/>
      Or some shell scripts such as `makeuprelease.sh`
      2. The src directory is the root directory of project source codes. It contains all non-3rd-party source codes(except the `libs` directory which contains 3rd-party source codes and some stylesheets in `styles` directory)
+        Interesting thing is: the ./src directory is ready to be served to the nginx http protocol (after running `yarn make`)
      3. The downgraded directory contains \*.js files downgraded by babel cli into ECMAScript 5th edition (browser friendly)

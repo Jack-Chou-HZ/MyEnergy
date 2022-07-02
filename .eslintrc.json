@@ -50,10 +50,5 @@
           "Hyperlink",
           {"name": "Link", "linkAttribute": "to"}
         ]
-    },
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
     }
-  }
 }

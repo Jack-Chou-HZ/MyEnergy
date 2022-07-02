@@ -1,17 +1,19 @@
 {
-  "name": "HTML5-ECMAScript-12-RequireJS",
+  "name": "MyEnergy",
   "version": "1.0.0",
-  "description": "A playground for HTML5+ECMAScript12+RequireJS",
+  "description": "The MyEnergy web app.",
   "main": "index.js",
-  "repository": "git@github.com:Jack-Chou-HZ/HTML5-ECMAScript-12-RequireJS.git",
+  "repository": "git@github.com:Jack-Chou-HZ/MyEnergy.git",
   "author": "Jack-Chou-HZ <better.product.go@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "transf": "babel ./src/views -d ./src/views --config-file ./.babelrc",
-    "lint": "eslint --fix ./src/{,**}/*.{js,jsx}",
+    "transf": "babel ./src/views/*.jsx -d ./src/views --config-file ./.babelrc",
+    "lint": "eslint ./src{,/**}/*.{js,jsx} --fix --quiet",
+    "make-dev": "yarn transf && yarn lint",
     "downgrade": "babel src -d ./downgraded --config-file ./.babelrc.downgrade",
-    "compress": "node node_modules/requirejs/bin/r.js -o ./r.compress.config.js"
+    "compress": "node node_modules/requirejs/bin/r.js -o ./r.compress.config.js",
+    "make-release": "yarn make-dev && yarn downgrade && yarn compress"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
@@ -25,6 +27,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.26.0",
+    "prop-types": "^15.7.2",
     "requirejs": "^2.3.6"
   },
   "packageManager": "yarn@3.0.2"

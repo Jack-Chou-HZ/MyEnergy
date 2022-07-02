@@ -2,7 +2,9 @@ node_modules
 downgraded
 release
 build
-*.log
-.yarn
 src/views/*.js
+.yarn
+*.log
+
+
 

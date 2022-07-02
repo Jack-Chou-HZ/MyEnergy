@@ -9,8 +9,8 @@
 
 define(['react',
   'react-dom',
-  'views/greetings',
-  'views/monitor'], function (React, ReactDOM, Greetings, Monitor) {
+  'views/Header',
+  'views/Monitor'], function (React, ReactDOM, Header, Monitor) {
   class App extends React.Component {
     constructor (props) {
       super(props)
@@ -18,15 +18,17 @@ define(['react',
     }
 
     componentDidMount () {
+      console.log('App did monut')
     }
 
     componentWillUnmount () {
+      console.log('I\'m going to mount')
     }
 
     render () {
       return (
         <div className='app'>
-          <Greetings props={this.state} className='greetings'/>
+          <Header props={this.state} className='greetings'/>
           <Monitor props={this.state} className='monitor'/>
         </div>
       )
